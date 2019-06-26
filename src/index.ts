@@ -1,6 +1,9 @@
-// export everything you want to be bundled here
-console.log('hello world')
+export * from './common/Room'
+export * from './common/SocketWrapper'
+export * from './common/types'
+export * from './common/ws'
 
-export interface Example {
-    someprop: number
-}
+export * from './eix/EixRoom'
+export * from './eix/EixServer'
+export * from './eix/defaults'
+export * from './eix/types'
