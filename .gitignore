@@ -4,4 +4,8 @@ node_modules
 docs
 report.*.json
 *.zip
+
+# Random files i made during development
 run.bat
+src/main.ts
+src/run.ts

@@ -1,22 +1,17 @@
-# Eix-\<core\>
-\<description\>
+# Eix-ws-server
+Module for easily running eix on a node.js server
 
-# Getting started 
-To get started, you need to have npm and node installed on your machine, and then install @eix/core and ts-node with:
+
+# Installing
+To install @eix/ws-server, you need to have npm and node installed on your machine, and then install @eix/ws-server with:
 ```
-npm i @eix/<name> ts-node
+npm i @eix/ws-server
 ```
-
-Create an `index.ts` file, and import the library:
-```ts
-// code
-``` 
-
 
 # Playing around with the source:
 First, clone this repo:
 ```sh
-git clone "https://github.com/eix-js/<name>"
+git clone "https://github.com/eix-js/ws-server"
 ```
 
 Then install the dependencies:
