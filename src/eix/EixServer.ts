@@ -1,11 +1,19 @@
 import { WsWrapper } from '../common/ws'
 import { EixRoom } from './EixRoom'
 import { EixRoomOptions } from './types'
+import { WsWrapperOptions } from '../common/types'
 
 export class EixServer {
     public rooms: Record<string, EixRoom<unknown>> = {}
+    public server: WsWrapper
 
-    constructor(public server: WsWrapper) {}
+    constructor(server: WsWrapper | Partial<WsWrapperOptions> = {}) {
+        if (server instanceof WsWrapper) {
+            this.server = server
+        } else {
+            this.server = new WsWrapper(server)
+        }
+    }
 
     public createRoom<T>(
         name: string,

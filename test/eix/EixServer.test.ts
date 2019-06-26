@@ -3,6 +3,8 @@ import { EixServer, WsWrapper } from '../../src'
 import Mitm from 'mitm'
 import { Server } from 'ws'
 
+describe('Initialsing the EixServer class', () => {})
+
 describe('The EixServer instance', () => {
     let server: EixServer
     let mitm = Mitm()
@@ -17,6 +19,30 @@ describe('The EixServer instance', () => {
                 })
             })
         )
+    })
+
+    describe('Constructing', () => {
+        beforeEach(() => {
+            server.server.dispose()
+        })
+
+        it('should accept no argumwnts', () => {
+            server = new EixServer()
+        })
+
+        it('should accept a set of options as arguments', () => {
+            server = new EixServer({ pingInterval: 1000 })
+        })
+
+        it('should accept a wsWrapper as its argument', () => {
+            server = new EixServer(
+                new WsWrapper({
+                    server: new Server({
+                        port: 8000
+                    })
+                })
+            )
+        })
     })
 
     describe('The roomList property', () => {
