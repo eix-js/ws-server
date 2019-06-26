@@ -1,5 +1,5 @@
 {
-	"name": "@eix/template",
+	"name": "@eix-js/ws-server",
 	"version": "1.0.0",
 	"description": "...",
 	"main": "dist/bundle.cjs.js",
@@ -49,8 +49,11 @@
 		"@babel/preset-env": "^7.4.5",
 		"@babel/preset-typescript": "^7.3.3",
 		"@types/chai": "^4.1.7",
+		"@types/mainloop.js": "^1.0.5",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.0.8",
+		"@types/sinon": "^7.0.13",
+		"@types/ws": "^6.0.1",
 		"@typescript-eslint/eslint-plugin": "^1.10.2",
 		"@typescript-eslint/parser": "^1.10.2",
 		"chai": "^4.2.0",
@@ -75,6 +78,7 @@
 		"rollup-plugin-node-resolve": "^5.0.3",
 		"rollup-plugin-terser": "^5.0.0",
 		"rollup-plugin-typescript": "^1.0.1",
+		"sinon": "^7.3.2",
 		"source-map-support": "^0.5.12",
 		"ts-node": "^8.1.0",
 		"tslib": "^1.10.0",
@@ -83,5 +87,11 @@
 		"typedoc-vortex-theme": "0.0.2",
 		"typescript": "^3.4.4"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"@eix-js/core": "0.0.6",
+		"ee-ts": "^1.0.1",
+		"mainloop.js": "^1.0.4",
+		"rxjs": "^6.5.2",
+		"ws": "^7.0.1"
+	}
 }
