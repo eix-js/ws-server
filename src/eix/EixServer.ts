@@ -5,7 +5,7 @@ import { EixRoomOptions } from './types'
 export class EixServer {
     public rooms: Record<string, EixRoom<unknown>> = {}
 
-    constructor(private server: WsWrapper) {}
+    constructor(public server: WsWrapper) {}
 
     public createRoom<T>(
         name: string,
@@ -21,5 +21,13 @@ export class EixServer {
         delete this.rooms[name]
 
         return this
+    }
+
+    public get roomList() {
+        return Object.keys(this.rooms)
+    }
+
+    public get roomCount() {
+        return this.roomList.length
     }
 }

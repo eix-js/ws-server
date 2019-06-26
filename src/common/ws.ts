@@ -14,6 +14,7 @@ export class WsWrapper extends EventEmitter<WsWrapperEventMap> {
     private server: ws.Server
     private lastSocketId = 0
     private sockets = new Set<SocketWrapper>()
+    private interval: NodeJS.Timeout | number
 
     public rooms: Record<string, Room> = {}
 
@@ -52,7 +53,7 @@ export class WsWrapper extends EventEmitter<WsWrapperEventMap> {
             })
         })
 
-        setInterval(() => {
+        this.interval = setInterval(() => {
             for (const socket of this.sockets) {
                 if (!socket.online) {
                     socket.disconnect()
@@ -91,6 +92,18 @@ export class WsWrapper extends EventEmitter<WsWrapperEventMap> {
 
             delete this.rooms[name]
         }
+
+        return this
+    }
+
+    public dispose() {
+        clearInterval(this.interval as number)
+
+        for (const socket of this.sockets) {
+            socket.disconnect()
+        }
+
+        this.server.close()
 
         return this
     }
