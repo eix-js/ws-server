@@ -49,7 +49,6 @@
 		"@babel/preset-env": "^7.4.5",
 		"@babel/preset-typescript": "^7.3.3",
 		"@types/chai": "^4.1.7",
-		"@types/mainloop.js": "^1.0.5",
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.0.8",
 		"@types/sinon": "^7.0.13",
@@ -90,7 +89,6 @@
 	"dependencies": {
 		"@eix-js/core": "0.0.6",
 		"ee-ts": "^1.0.1",
-		"mainloop.js": "^1.0.4",
 		"rxjs": "^6.5.2",
 		"ws": "^7.0.1"
 	}

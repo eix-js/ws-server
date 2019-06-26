@@ -1,5 +1,4 @@
 import { WsWrapper } from './common/ws'
-import loop from 'mainloop.js'
 import { EixServer } from './eix/EixServer'
 
 const { random } = Math
@@ -37,7 +36,9 @@ server.on('connction', socket => {
     room.add(socket)
 })
 
-loop.setUpdate((delta: number) => {
+const delta = 1000 / 60
+
+setInterval(() => {
     players.each(player => {
         player.speed[1] += 0.003 * delta
 
@@ -57,4 +58,4 @@ loop.setUpdate((delta: number) => {
 
         return 'position'
     })
-}).start()
+}, delta)
