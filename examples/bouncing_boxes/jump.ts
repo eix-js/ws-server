@@ -1,32 +1,30 @@
-import { ComponentExposer } from '@eix-js/core'
+import { Ecs } from '@eix-js/core'
 import { Player } from './types'
 
 // const delta = 1000 / 60
 
-export const main = (
-    delta: number,
-    players: ComponentExposer<Player>,
-    screenSize: [number, number]
-) => {
-    setInterval(() => {
-        players.each(player => {
-            player.speed[1] += 0.003 * delta
+export const main = (delta: number, ecs: Ecs, screenSize: [number, number]) => {
+	const players = ecs.all.flag('player').get<Player>()
 
-            player.position = player.position.map((value, index) => {
-                const newPos = value + player.speed[index] * delta
+	setInterval(() => {
+		players.each(player => {
+			player.speed[1] += 0.003 * delta
 
-                if (newPos < 0) {
-                    player.speed[index] = 0
-                    return 0
-                } else if (newPos + player.size[index] > screenSize[index]) {
-                    player.speed[index] *= -1
-                    return screenSize[index] - player.size[index]
-                } else {
-                    return newPos
-                }
-            }) as [number, number]
+			player.position = player.position.map((value, index) => {
+				const newPos = value + player.speed[index] * delta
 
-            return 'position'
-        })
-    }, delta)
+				if (newPos < 0) {
+					player.speed[index] = 0
+					return 0
+				} else if (newPos + player.size[index] > screenSize[index]) {
+					player.speed[index] *= -1
+					return screenSize[index] - player.size[index]
+				} else {
+					return newPos
+				}
+			}) as [number, number]
+
+			return 'position'
+		})
+	}, delta)
 }

@@ -16,11 +16,6 @@
 		"build": "rollup -c",
 		"postbuild": "tsc --emitDeclarationOnly"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
 	"lint-staged": {
 		"*.ts": [
 			"npm run lint:fix",
