@@ -62,7 +62,7 @@
 		"eslint-plugin-standard": "^4.0.0",
 		"gh-pages": "^2.0.1",
 		"husky": "^2.4.1",
-		"lint-staged": "^8.2.1",
+		"lint-staged": "^13.1.0",
 		"mitm": "^1.7.0",
 		"mocha": "^6.1.4",
 		"prettier": "^1.18.2",
